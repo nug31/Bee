@@ -21,13 +21,23 @@ function typeWriter() {
 // window.onload = typeWriter;
 
 // Runaway Button Logic
-noBtn.addEventListener('mouseover', () => {
+function moveButton() {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
 
     noBtn.style.position = 'fixed';
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
+}
+
+noBtn.addEventListener('mouseover', moveButton);
+noBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Mencegah klik beneran di HP
+    moveButton();
+});
+noBtn.addEventListener('click', (e) => {
+    // Sebagai jaga-jaga kalau kena klik di PC/HP
+    moveButton();
 });
 
 // Success Event
