@@ -80,4 +80,39 @@ function createHeart() {
     animation.onfinish = () => heart.remove();
 }
 
+// Create Random Photo Particles
+const photos = ['public/1.jpeg', 'public/2.jpeg', 'public/3.jpeg', 'public/4.jpeg'];
+
+function createPhotoParticle() {
+    const photo = document.createElement('img');
+    photo.src = photos[Math.floor(Math.random() * photos.length)];
+    photo.classList.add('photo-particle');
+
+    const size = Math.random() * 100 + 100; // 100px - 200px
+    photo.style.width = size + 'px';
+    photo.style.height = size + 'px';
+
+    photo.style.left = Math.random() * (window.innerWidth - size) + 'px';
+    photo.style.top = Math.random() * (window.innerHeight - size) + 'px';
+
+    const rotation = Math.random() * 40 - 20; // -20deg to 20deg
+    photo.style.transform = `scale(0) rotate(${rotation}deg)`;
+
+    document.body.appendChild(photo);
+
+    // Animate in
+    setTimeout(() => {
+        photo.style.opacity = '0.7';
+        photo.style.transform = `scale(1) rotate(${rotation}deg)`;
+    }, 10);
+
+    // Animate out
+    setTimeout(() => {
+        photo.style.opacity = '0';
+        photo.style.transform = `scale(0) rotate(${rotation}deg)`;
+        setTimeout(() => photo.remove(), 500);
+    }, 2000);
+}
+
 setInterval(createHeart, 300);
+setInterval(createPhotoParticle, 800); // Muncul setiap 0.8 detik
