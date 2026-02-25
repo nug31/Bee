@@ -114,5 +114,32 @@ function createPhotoParticle() {
     }, 2000);
 }
 
+// Music Control
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicToggle');
+let isMusicPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+    if (isMusicPlaying) {
+        music.pause();
+        musicBtn.classList.remove('playing');
+    } else {
+        music.play();
+        musicBtn.classList.add('playing');
+    }
+    isMusicPlaying = !isMusicPlaying;
+});
+
+// Auto-play on first click (browser policy bypass)
+document.addEventListener('click', function startMusic() {
+    if (!isMusicPlaying) {
+        music.play().then(() => {
+            isMusicPlaying = true;
+            musicBtn.classList.add('playing');
+        }).catch(e => console.log("Autoplay blocked"));
+    }
+    document.removeEventListener('click', startMusic);
+}, { once: true });
+
 setInterval(createHeart, 300);
-setInterval(createPhotoParticle, 800); // Muncul setiap 0.8 detik
+setInterval(createPhotoParticle, 800);
