@@ -1,4 +1,4 @@
-const apologyText = "Bee, aku mau minta maaf dari hati yang paling dalam... Sayang, maafin yaa, semoga ngga buat kamu sedih lagi, aku janji. Kasih aku kesempatan buat perbaiki yaa Bee. I love you so much, Sayang... ❤️";
+const apologyText = "Bee, aku mau minta maaf dari hati yang paling dalam... Sayang, maafin yaa, semoga ngga buat kamu sedih lagi, aku janji. Kasih aku kesempatan buat perbaiki yaa Bee. I love you so much, Sayang... 🤍";
 
 const apologyElement = document.getElementById('apology-text');
 const mainCard = document.getElementById('mainCard');
@@ -71,7 +71,7 @@ yesBtn.addEventListener('click', () => {
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('particle');
-    heart.innerHTML = '❤️';
+    heart.innerHTML = '🤍';
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = Math.random() * 3 + 2 + 's';
     heart.style.fontSize = Math.random() * 20 + 10 + 'px';
