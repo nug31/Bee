@@ -17,8 +17,8 @@ function typeWriter() {
     }
 }
 
-// Start typewriter on load
-window.onload = typeWriter;
+// Start typewriter is now handled by startBtn click
+// window.onload = typeWriter;
 
 // Runaway Button Logic
 noBtn.addEventListener('mouseover', () => {
@@ -117,9 +117,11 @@ function createPhotoParticle() {
 // Music Control
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicToggle');
+const welcomeOverlay = document.getElementById('welcomeOverlay');
+const startBtn = document.getElementById('startBtn');
 let isMusicPlaying = false;
 
-musicBtn.addEventListener('click', () => {
+function toggleMusic() {
     if (isMusicPlaying) {
         music.pause();
         musicBtn.classList.remove('playing');
@@ -128,18 +130,23 @@ musicBtn.addEventListener('click', () => {
         musicBtn.classList.add('playing');
     }
     isMusicPlaying = !isMusicPlaying;
-});
+}
 
-// Auto-play on first click (browser policy bypass)
-document.addEventListener('click', function startMusic() {
-    if (!isMusicPlaying) {
-        music.play().then(() => {
-            isMusicPlaying = true;
-            musicBtn.classList.add('playing');
-        }).catch(e => console.log("Autoplay blocked"));
-    }
-    document.removeEventListener('click', startMusic);
-}, { once: true });
+musicBtn.addEventListener('click', toggleMusic);
+
+// Handle Welcome Overlay
+startBtn.addEventListener('click', () => {
+    welcomeOverlay.classList.add('hidden');
+
+    // Start music
+    music.play().then(() => {
+        isMusicPlaying = true;
+        musicBtn.classList.add('playing');
+    }).catch(e => console.log("Autoplay blocked"));
+
+    // Start typewriter
+    typeWriter();
+});
 
 setInterval(createHeart, 300);
 setInterval(createPhotoParticle, 800);
