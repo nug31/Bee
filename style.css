@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff758f;
+    --text-color: #4a4a4a;
+    --bg-overlay: rgba(255, 255, 255, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #ffe5ec; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,182,193,0.3) 100%);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    z-index: 10;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    animation: fadeIn 1s ease-out;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.message-container {
+    min-height: 100px;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.btn-yes {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+}
+
+.btn-yes:hover {
+    transform: scale(1.05);
+    background: var(--secondary-color);
+}
+
+.btn-no {
+    background: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.success-card {
+    padding: 3rem;
+}
+
+.heart-animation {
+    font-size: 4rem;
+    margin-top: 1rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Floating Hearts Background */
+.particle {
+    position: fixed;
+    top: -10%;
+    color: rgba(255, 77, 109, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 480px) {
+    .main-title { font-size: 2rem; }
+    .message-container { font-size: 1rem; }
+}
