@@ -18,7 +18,10 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: #ffe5ec; /* Fallback color */
+    background: #ffe5ec;
+    /* Fallback color */
+    background-image: url('public/bg.jpg');
+    /* Masukkan foto kamu di folder public dan beri nama bg.jpg */
     background-size: cover;
     background-position: center;
 }
@@ -29,7 +32,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,182,193,0.3) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 182, 193, 0.3) 100%);
     z-index: -1;
 }
 
@@ -113,14 +116,29 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Floating Hearts Background */
@@ -133,6 +151,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    .main-title { font-size: 2rem; }
-    .message-container { font-size: 1rem; }
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .message-container {
+        font-size: 1rem;
+    }
 }
