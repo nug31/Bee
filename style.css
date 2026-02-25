@@ -187,6 +187,21 @@ body {
     animation: pulse 1.5s infinite;
 }
 
+.btn-wa {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-wa:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+    color: white;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
